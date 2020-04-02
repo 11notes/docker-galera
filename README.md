@@ -1,0 +1,2 @@
+# docker-galera
+ galera cluster
