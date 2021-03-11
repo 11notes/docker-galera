@@ -29,7 +29,7 @@
             rm /etc/mysql/conf.d/31-auth-socket.cnf ;\
             sed -i 's#-p \$progress#-p \$progress-XXX#' /usr/bin/wsrep_sst_mariabackup
 
-        RUN RUN chmod +x /usr/local/bin/*
+        RUN chmod +x /usr/local/bin/*
 
         # :: docker -u 1000:1000 (no root initiative)
             RUN APP_UID="$(id -u mysql)" \
