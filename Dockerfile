@@ -40,6 +40,11 @@
             RUN usermod -u 1000 mysql \
                 && groupmod -g 1000 mysql
 
+            RUN chown -R 1000:1000 \
+                /var/lib/mysql \
+                /var/run \
+                /usr/local
+
 # :: Volumes
     VOLUME ["/var/lib/mysql"]
 
