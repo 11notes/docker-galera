@@ -3,8 +3,6 @@
     ENV SST_METHOD=mariabackup
 
 # :: Run
-    USER root
-
     # :: prepare
         COPY qpress-11-linux-x64.tar /tmp/qpress.tar
 
@@ -40,20 +38,13 @@
             RUN usermod -u 1000 mysql \
                 && groupmod -g 1000 mysql
 
-            RUN chown -R 1000:1000 \
-                /var/lib/mysql \
-                /var/run \
-                /usr/local
-
 # :: Volumes
     VOLUME ["/var/lib/mysql"]
 
 
 # :: Monitor
-    RUN chmod +x /usr/local/bin/healthcheck.sh
     HEALTHCHECK CMD /usr/local/bin/healthcheck.sh || exit 1
 
 
 # :: Start
-    USER mysql
     ENTRYPOINT ["start.sh"]
