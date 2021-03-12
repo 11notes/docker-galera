@@ -1,5 +1,5 @@
 # :: Header
-    FROM mariadb:10.4
+    FROM mariadb:10.5
     ENV SST_METHOD=mariabackup
 
 # :: Run
